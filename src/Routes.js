@@ -10,8 +10,8 @@ const Routes = () => (
   <Router>
     <div>
       <Route exact path="/" component={() => <PrivateRoute component={Home} />} />
+      <Route path="/about" component={() => <PrivateRoute component={About} />} />
       <Route path="/login" component={Login} />
-      <Route path="/about" component={About} />
     </div>
   </Router>
 );
