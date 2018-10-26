@@ -11,6 +11,7 @@ const adminUser = {
   lastName: 'Hardy',
   authenticationLevel: 'admin',
   birthDay: 'September 15, 1977',
+  users: [{ name: 'Venom' }, { name: 'Carnage' }, { name: 'Brody' }, { name: 'Peter Parker' }]
 }
 
 const fakeAuth = {

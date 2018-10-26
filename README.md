@@ -1,5 +1,5 @@
 # Descriptions:
-This is a conference website for VES-5 and can be inherited for futre projects.
+This is a web site that utilize react, react-router, and redux.
 
 ## Project Structure
 
