@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 import fakeAuth from '../auth/fakeAuth';
 
+import loginReducer from '../Login/module/login';
+
 const rootReducer = combineReducers({
   auth: () => fakeAuth,
-  test: () => 'hello',
+  user: loginReducer
 });
   
 export default rootReducer;
