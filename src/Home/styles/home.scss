@@ -6,4 +6,18 @@
     justify-content: center;
     align-items: center;
   }
+
+  &__edit-text, &__edit-textarea {
+    margin: 5px 0px;
+    width: 100%;
+    font-size: 1em;
+    background: #fff;
+    border: 1px solid rgba(34,36,38,.15);
+    color: rgba(0,0,0,.87);
+    box-sizing:border-box;
+  }
+
+  &__edit-textarea {
+    height: 100px;
+  }
 }
