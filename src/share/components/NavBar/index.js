@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from "react-router-dom";
 import { Button } from 'semantic-ui-react';
 
-import { logout } from '../auth/authActions';
-import './style/navbar.scss';
+import { logout } from '../../../auth/authActions';
+import './navbar.scss';
 
 const AuthButton = withRouter(
   ({ history, logout }) => (

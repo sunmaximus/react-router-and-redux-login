@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Container, Icon, Button } from 'semantic-ui-react';
+import { Table, Icon } from 'semantic-ui-react';
 
 import '../styles/home.scss'
 
