@@ -7,6 +7,19 @@ import '../style/login.scss';
 class LoginComponent extends Component {
   state = { redirectToReferrer: false, username: '', password: '' };
   login = () => {
+    
+    // this.props.login({
+    //   "email": "peter@klaven",
+    //   "password": "cityslicka"
+    // })
+
+    this.props.login({
+      id: 1, 
+      username: 'brad',
+      email: 'brad@gmail.com',
+      password: '123456'
+    })
+
     const { username, password } = this.state;
     this.props.auth.authenticate((user) => {
       this.props.retrievedUSer(user)

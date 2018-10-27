@@ -1,15 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
+import { logout } from '../auth/authActions';
 import './style/navbar.scss';
 
-const NavBar = ({ hasBackground }) => {
+const NavBar = (props) => {
   return (
-    <div className={hasBackground ? 'navigation-bar' : 'navigation-bar-no-background' }>
+    <div className={props.hasBackground ? 'navigation-bar' : 'navigation-bar-no-background' }>
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
+      <div onClick={() => props.logout()}>logout</div>
     </div>        
   );
 }
 
-export default NavBar;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () =>  dispatch(logout())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(NavBar);

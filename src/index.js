@@ -4,10 +4,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import jwtDecode from 'jwt-decode';
 
 import App from './App';
 import rootReducers from './store/reducers';
 import * as serviceWorker from './serviceWorker';
+import setAuthorizationToken from './utils/setAuthorizationToken';
+import { setCurrentUser } from './auth/authActions';
 
 import './index.css';
 
@@ -23,6 +26,12 @@ const enhancer = composeEnhancers(
   // other store enhancers if any
 );
 const store = createStore(rootReducers, enhancer);
+
+if (localStorage.jwtToken) {
+  setAuthorizationToken(localStorage.jwtToken);
+  store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

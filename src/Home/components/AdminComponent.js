@@ -41,8 +41,7 @@ class UserComponent extends Component {
     )));
   }
   render() {
-    const { firstName, lastName, edit, newUser } = this.state;
-    console.log(22, newUser)
+    const { firstName, lastName, edit } = this.state;
     return (
       <div className='home__container'>
         <h1>Admin: {`${firstName} ${lastName}`}</h1>
@@ -50,7 +49,6 @@ class UserComponent extends Component {
         <div className='home__edit-admin-container'>
           <h4>Edit:</h4> 
           {edit && <input
-            // value={newUser}
             className='home__edit-admin-add-user'
             placeholder='add username and press enter'
             onKeyUp={(event) => this.addUser(event.target.value, event.key)}  
