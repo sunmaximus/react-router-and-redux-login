@@ -8,18 +8,21 @@ class LoginComponent extends Component {
   state = { redirectToReferrer: false, username: '', password: '' };
   login = () => {
     const { username, password } = this.state;
-    this.props.login({ username, password }, () => this.setState({ redirectToReferrer: true }));
+    // very simple form valitation. Change this base on the business logic
+    this.setState({ userNameError: !username, passwordError: !password, });
+    username && password && this.props.login(
+      { username, password },
+      ({ redirectToReferrer, error }) => this.setState({ redirectToReferrer, error })
+    );
   };
 
   render() {
     let { from } = this.props.location.state || { from: { pathname: "/" } };
-    let { redirectToReferrer, username, password } = this.state;
+    let { redirectToReferrer, username, password, error, userNameError, passwordError } = this.state;
     if (redirectToReferrer) return <Redirect to={from} />;
 
     return (
-      <div className='login__container'>
-        {/* <p>You must log in to view the page at {from.pathname}</p> */}
-        
+      <div className='login__container'>        
         <h1>login form</h1>
         <div className='login__card'>
           <Form className='login__form'>
@@ -28,7 +31,12 @@ class LoginComponent extends Component {
               <input
                 value={username}
                 placeholder='username *'
-                onChange={(event) => this.setState({ username: event.target.value })}
+                onChange={
+                  (event) => this.setState({ 
+                    username: event.target.value,
+                    userNameError: !event.target.value
+                  })}
+                className={`${userNameError && 'login__input-error'}`}
               />
             </Form.Field>
             <Form.Field>
@@ -37,11 +45,15 @@ class LoginComponent extends Component {
                 value={password}
                 type="password"
                 placeholder='password *'
-                onChange={(event) => this.setState({ password: event.target.value })}
+                onChange={(event) => this.setState({
+                  password: event.target.value,
+                  passwordError: !event.target.value
+                })}
+                className={`${passwordError && 'login__input-error'}`}
               />
             </Form.Field>
             <Button type='submit' onClick={this.login} className='login__button'>Login</Button>
-            {/* {!authSuccess && authSuccess !== undefined && <div className='login__error'>login fail</div>} */}
+            {error && <div className='login__error'>login fail</div>}
           </Form>
         </div>
       </div>
