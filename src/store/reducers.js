@@ -5,9 +5,8 @@ import loginReducer from '../Login/module/login';
 import authReducer from './authReducer';
 
 const rootReducer = combineReducers({
-  auth: () => fakeAuth,
-  user: loginReducer,
-  authorize: authReducer,
+  // user: loginReducer,
+  auth: authReducer,
 });
   
 export default rootReducer;

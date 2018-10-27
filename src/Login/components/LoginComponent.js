@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Radio } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 import { Redirect } from "react-router-dom";
 
 import '../style/login.scss';
@@ -7,34 +7,14 @@ import '../style/login.scss';
 class LoginComponent extends Component {
   state = { redirectToReferrer: false, username: '', password: '' };
   login = () => {
-    
-    // this.props.login({
-    //   "email": "peter@klaven",
-    //   "password": "cityslicka"
-    // })
-
-    this.props.login({
-      id: 1, 
-      username: 'brad',
-      email: 'brad@gmail.com',
-      password: '123456'
-    })
-
     const { username, password } = this.state;
-    this.props.auth.authenticate((user) => {
-      this.props.retrievedUSer(user)
-      this.setState((prevState) => ({
-        redirectToReferrer: true,
-        authSuccess: prevState.purposelyFail ? false : !prevState.authSuccess }));
-    }, { username, password });
+    this.props.login({ username, password }, () => this.setState({ redirectToReferrer: true }));
   };
-
-  forceAuthFail = () => this.setState((prevState) => ({ purposelyFail: !prevState.purposelyFail }))
 
   render() {
     let { from } = this.props.location.state || { from: { pathname: "/" } };
-    let { redirectToReferrer, authSuccess, username, password } = this.state;
-    if (redirectToReferrer && authSuccess) return <Redirect to={from} />;
+    let { redirectToReferrer, username, password } = this.state;
+    if (redirectToReferrer) return <Redirect to={from} />;
 
     return (
       <div className='login__container'>
@@ -61,12 +41,9 @@ class LoginComponent extends Component {
               />
             </Form.Field>
             <Button type='submit' onClick={this.login} className='login__button'>Login</Button>
-            {!authSuccess && authSuccess !== undefined && <div className='login__error'>login fail</div>}
+            {/* {!authSuccess && authSuccess !== undefined && <div className='login__error'>login fail</div>} */}
           </Form>
         </div>
-
-        <h4>toggle to force authenticate fail</h4>
-        <Radio slider onClick={() => this.forceAuthFail()}/>
       </div>
     );
   }

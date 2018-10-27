@@ -12,7 +12,7 @@ const mapStateToProps = ({ auth }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     retrievedUSer: (user) => dispatch(fetchedUser(user)),
-    login: (data) => dispatch(login(data))
+    login: (data, callBack) => dispatch(login(data, callBack))
   } 
 }
 
