@@ -5,6 +5,7 @@ This is a web site that utilize react, react-router, and redux.
 
 ```
 .
+├── auth                     # Directory for all authentication related 
 ├── build                    # All build-related code
 ├── public                   # Static public assets (not imported anywhere in source code)
 │   └── index.html           # Main HTML page container for app
@@ -17,14 +18,15 @@ This is a web site that utilize react, react-router, and redux.
 │   │   ├── Containers       # Layout encapsulated Containers
 │   │   ├── module           # Layout encapsulated Redux actions, constants, and reducers
 │   │   └── styles           # Style directory for Layout
-│   ├── components           # Global Reusable Components
-│   ├── containers           # Global Reusable Container Components
-│   ├── Routes               # Main route definitions and async split points
-│   │   └── index.js         # Bootstrap main application routes with store
+│   ├── share                # Directory of Global Reusable Components
+|   |   └── components       # Directories of resuable share Component 
+│   ├── utils                # Global Reusable utility functions
+│   ├── Routes.js            # Main route definitions
 │   ├── store                # Redux-specific pieces
 │   │   └── reducers.js      # Reducer registry and injection
 │   └── styles               # Application-wide styles (generally settings)
-└── tests                    # Unit tests
+└── test                     # Unit tests
+    └── utils                # Mock redux store for unit testing thunk    
 ```
 
 ## Installations
