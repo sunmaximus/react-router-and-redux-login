@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NavBar from '../components/NavBar';
+import NavBar from '../share/components/NavBar';
 import HomeContainer from './containers/HomeContainer';
 
 const Home = () => {

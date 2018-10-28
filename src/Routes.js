@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from './Home';
 import Login from './Login';
 import About from './About';
@@ -8,12 +8,12 @@ import PrivateRoute from './PrivateRoute';
 
 const Routes = () => (
   <Router>
-    <div>
+    <Switch>
       <Route exact path="/" component={() => <PrivateRoute component={Home} />} />
       <Route path="/about" component={() => <PrivateRoute component={About} />} />
       <Route path="/login" component={Login} />
-    </div>
+    </Switch>
   </Router>
 );
 
-export default Routes
+export default Routes;

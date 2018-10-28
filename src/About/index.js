@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Header } from 'semantic-ui-react'
 
-import NavBar from '../components/NavBar'
+import NavBar from '../share/components/NavBar'
 import './style/about.scss'
 
 const About = () => {

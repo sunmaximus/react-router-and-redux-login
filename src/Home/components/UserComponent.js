@@ -30,7 +30,7 @@ class UserComponent extends Component {
               </Card.Meta>
               <textarea
                 className='home__edit-textarea'
-                value={descriptions} maxlength="300"
+                value={descriptions} maxLength="300"
                 onChange={(event) => this.setState({ descriptions: event.target.value })}
               />
             </Card.Content>
