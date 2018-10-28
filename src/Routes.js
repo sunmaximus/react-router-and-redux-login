@@ -5,13 +5,13 @@ import Login from './Login';
 import About from './About';
 import Error from './Error';
 
-import PrivateRoute from './PrivateRoute';
+import requireAuth from './utils/requireAuth';
 
 const Routes = () => (
   <Router>
     <Switch>
-      <Route exact path="/" component={() => <PrivateRoute component={Home} />} />
-      <Route path="/about" component={() => <PrivateRoute component={About} />} />
+      <Route exact path="/" component={requireAuth(Home)} />
+      <Route path="/about" component={requireAuth(About)} />
       <Route path="/login" component={Login} />
       <Route component={Error} />
     </Switch>
