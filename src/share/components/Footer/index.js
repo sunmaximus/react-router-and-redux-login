@@ -1,10 +1,5 @@
 import React from 'react';
-
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab, faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import './footer.scss';
-
-library.add(fab, faYoutube, faInstagram )
 
 const Footer = () => {
   return (
