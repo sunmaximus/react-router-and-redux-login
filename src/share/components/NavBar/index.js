@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from "react-router-dom";
 import { Button } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 import { logout } from '../../../auth/authActions';
 import './navbar.scss';
@@ -31,5 +32,14 @@ const mapDispatchToProps = (dispatch) => {
     logout: (cb) =>  dispatch(logout(cb))
   }
 }
+
+AuthButton.propTypes = {
+  history: PropTypes.object,
+  logout: PropTypes.func.isRequired,
+}
+
+NavBar.propTypes = {
+  logout: PropTypes.func.isRequired
+};
 
 export default connect(null, mapDispatchToProps)(NavBar);

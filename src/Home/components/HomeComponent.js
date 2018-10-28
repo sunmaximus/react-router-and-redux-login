@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import UserComponent from './UserComponent';
 import AdminComponent from './AdminComponent';
+import PropTypes from 'prop-types';
 
 import '../styles/home.scss'
 class HomeComponent extends Component {
@@ -13,5 +14,9 @@ class HomeComponent extends Component {
     return <AdminComponent user={this.props.user} />
   }
 }
+
+HomeComponent.propTypes = {
+  user: PropTypes.object.isRequired
+};
 
 export default HomeComponent;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Icon } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 import '../styles/home.scss'
 
@@ -77,5 +78,9 @@ class UserComponent extends Component {
     );
   }
 }
+
+UserComponent.propTypes = {
+  user: PropTypes.object.isRequired
+};
 
 export default UserComponent;

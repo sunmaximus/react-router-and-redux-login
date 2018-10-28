@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form } from 'semantic-ui-react'
 import { Redirect } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 import '../style/login.scss';
 
@@ -60,5 +61,11 @@ class LoginComponent extends Component {
     );
   }
 }
+
+LoginComponent.propTypes = {
+  login: PropTypes.func.isRequired,
+  location: PropTypes.object,
+};
+
 
 export default LoginComponent;

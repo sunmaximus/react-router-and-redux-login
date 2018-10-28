@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Card, Image, Button } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
-import '../styles/home.scss'
+import '../styles/home.scss';
 
 class UserComponent extends Component {
   state = {
@@ -12,8 +13,7 @@ class UserComponent extends Component {
   }
 
   render() {
-    const { firstName, lastName, birthDay, descriptions, edit } = this.state; 
-
+    const { firstName, lastName, birthDay, descriptions, edit } = this.state;
     if (edit) {
       return (
         <div className='home__container'>
@@ -35,13 +35,12 @@ class UserComponent extends Component {
               />
             </Card.Content>
             <Card.Content extra>
-              <Button onClick={() => this.setState(prevState => this.setState({ edit: !prevState.edit }))}>complete edit</Button>
+              <Button onClick={() => this.setState(prevState => ({ edit: !prevState.edit }))}>complete edit</Button>
             </Card.Content>
           </Card>
         </div>
       );
     }
-
 
     return (
       <div className='home__container'>
@@ -55,12 +54,16 @@ class UserComponent extends Component {
             <Card.Description>{descriptions}</Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <Button onClick={() => this.setState(prevState => this.setState({ edit: !prevState.edit }))}>Edit</Button>
+            <Button onClick={() => this.setState(prevState => ({ edit: !prevState.edit }))}>Edit</Button>
           </Card.Content>
         </Card>
       </div>
     );
   }
 }
+
+UserComponent.propTypes = {
+  user: PropTypes.object.isRequired
+};
 
 export default UserComponent;
