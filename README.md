@@ -1,5 +1,5 @@
 # Descriptions:
-This is a web site that utilize react, react-router, and redux.
+This is a web site that utilize react, react-router, redux, and simple JWT authentication.
 
 ## Project Structure
 
@@ -29,7 +29,22 @@ This is a web site that utilize react, react-router, and redux.
     └── utils                # Mock redux store for unit testing thunk    
 ```
 
-## Installations
+## How to run client
+
+```bash
+$ npm install
+```
+```bash
+$ npm run start
+```
+
+## How to run backend(simple_jwt_nodejs) 
+
+```bash
+$ cd simple_jwt_nodejs
+
+```
+
 ```bash
 $ npm install
 ```
@@ -39,5 +54,4 @@ $ npm run start
 ```
 
 ## License
-
 [MIT](https://tldrlegal.com/license/mit-license)
